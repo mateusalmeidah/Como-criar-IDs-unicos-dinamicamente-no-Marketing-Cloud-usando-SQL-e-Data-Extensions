@@ -1,0 +1,8 @@
+UPDATE FinalData -- Query 3
+SET
+    EmailAddress = COALESCE(t.EmailAddress, f.EmailAddress),
+    FullName = COALESCE(t.FullName, f.FullName),
+    PhoneNumber = COALESCE(t.PhoneNumber, f.PhoneNumber)
+FROM FinalData f
+INNER JOIN TempData t
+    ON f.ID = t.ID

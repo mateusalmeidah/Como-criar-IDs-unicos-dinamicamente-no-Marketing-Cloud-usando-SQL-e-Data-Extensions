@@ -1,0 +1,12 @@
+SELECT --Query 1
+    t.EmailAddress,
+    t.FullName,
+    t.PhoneNumber,
+    f.ID AS ExistingID
+FROM TempData t
+LEFT JOIN FinalData f
+    ON (
+        (t.EmailAddress = f.EmailAddress AND t.EmailAddress IS NOT NULL) OR
+        (t.FullName = f.FullName AND t.FullName IS NOT NULL) OR
+        (t.PhoneNumber = f.PhoneNumber AND t.PhoneNumber IS NOT NULL)
+    )

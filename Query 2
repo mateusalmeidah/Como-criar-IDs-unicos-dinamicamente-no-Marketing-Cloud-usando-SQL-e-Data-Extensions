@@ -1,0 +1,13 @@
+SELECT --Query 2
+    NEWID() AS ID, -- Cria um novo ID único
+    t.EmailAddress,
+    t.FullName,
+    t.PhoneNumber
+FROM TempData t
+LEFT JOIN FinalData f
+    ON (
+        (t.EmailAddress = f.EmailAddress AND t.EmailAddress IS NOT NULL) OR
+        (t.FullName = f.FullName AND t.FullName IS NOT NULL) OR
+        (t.PhoneNumber = f.PhoneNumber AND t.PhoneNumber IS NOT NULL)
+    )
+WHERE f.ID IS NULL -- Insere apenas quando o ID não existe
