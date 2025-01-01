@@ -1,0 +1,1 @@
+# Como-criar-IDs-unicos-dinamicamente-no-Marketing-Cloud-usando-SQL-e-Data-Extensions
